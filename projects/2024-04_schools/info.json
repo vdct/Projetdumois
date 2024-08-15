@@ -1,0 +1,338 @@
+{
+  "id": "2023-09_mairies",
+  "title": "Mairies",
+  "start_date": "2024-04-01",
+  "end_date": "2024-05-01",
+  "summary": "La complétude des écoles a besoin de vous. Cartographions ensemble ces lieux dans OpenStreetMap ! #Écoles #ProjetDuMois",
+  "links": {
+    "osmwiki": " https://wiki.openstreetmap.org/wiki/FR:Projet_du_mois/Écoles"
+  },
+  "database": {
+    "osmium_tag_filter": "nw/amenity=school",
+    "imposm": {
+      "types": [
+        "point",
+        "polygon"
+      ],
+      "mapping": {
+        "amenity": ["school"]
+      }
+      }
+    },
+    "datasources": [
+      {
+        "source": "osmose",
+        "item": "8032",
+        "country": "france*",
+        "name": "Écoles à compléter",
+        "description": "Cette existe déjà dans OSM, et des données supplémentaires peuvent être ajoutées depuis une source officielle. Vérifiez ces infos puis validez leur ajout.",
+        "color": "#4A148C",
+        "buttons": {
+          "edit": "Compléter cette école"
+        }
+      },
+      {
+        "source": "osmose",
+        "item": "8031",
+        "country": "france*",
+        "name": "Écoles à localiser",
+        "description": "Il y a une école à proximité. Vérifiez sa position exacte sur le terrain, puis ajoutez-la à OpenStreetMap.",
+        "buttons": {
+          "add": "Intégrer cette école"
+        }
+      },
+      {
+        "source": "notes",
+        "name": "École à intégrer",
+        "description": "Une personne a créé une note ici, vérifiez puis éditez OSM pour intégrer les informations.",
+        "terms": [
+          "école",
+          "éducation",
+          "education",
+          "school"
+        ]
+      },
+      {
+        "source": "osm",
+        "name": "École dans OSM",
+        "description": "Cette école existe déjà dans OSM. Vous pouvez compléter ou modifier ses informations si nécessaire."
+      },
+      {
+        "source": "background",
+        "tiles": [
+          "https://wxs.ign.fr/pratique/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ORTHOIMAGERY.ORTHOPHOTOS&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fjpeg"
+        ],
+        "name": "Vue aérienne",
+        "icon": "aerial",
+        "attribution": "<a href=\"https://openstreetmap.fr/bdortho\" target=\"_blank\">&copy; BDOrtho IGN</a>"
+      },
+      {
+        "source": "background",
+        "tiles": "mapillary",
+        "name": "Photos de rue",
+        "icon": "picture"
+      },
+      {
+        "source": "stats"
+      }
+    ],
+    "statistics": {
+      "count": true,
+      "feature_name": "écoles",
+      "osmose_tasks": "écoles intégrées",
+      "points": {
+        "add": 3,
+        "edit": 1,
+        "note": 1
+      }
+    },
+    "editors": {
+      "all": {
+        "comment": "Ajout d'une école",
+        "hashtags": "projetdumois,projetdumoisfr,school,teamProf,projetdumoisécoles"
+      },
+      "pdm": {
+        "fields": [
+          {
+            "type": "hidden",
+            "tags": {
+              "amenity": "school",
+              "source": "*"
+            }
+          },
+          {
+            "type": "text",
+            "name": "Nom",
+            "tag": "name"
+          },
+          {
+            "type": "text",
+            "name": "Opérateur / gestionnaire",
+            "tag": "operator",
+            "optional": true
+          },
+          {
+            "type": "text",
+            "name": " Unité Administrative Immatriculée",
+            "tag": "ref:UAI",
+            "optional": true
+          },
+          {
+            "type": "select",
+            "name": "Opérateur / gestionnaire",
+            "tag": "operator:type",
+            "optional": true,
+            "values": [
+                {
+                  "v": "public",
+                  "l": "Public"
+                },
+                {
+                  "v": "private",
+                  "l": "Private"
+                }
+              ]
+          },
+          {
+            "type": "select",
+            "name": "Classification internationale type de l'éducation",
+            "tag": "isced:level",
+            "optional": true,
+            "values": [
+                {
+                  "v": "0",
+                  "l": "Éducation de la petite enfance"
+                },
+                {
+                  "v": "1",
+                  "l": "Enseignement primaire"
+                },
+                {
+                  "v": "2",
+                  "l": "Premier cycle de l’enseignement secondaire"
+                },
+                {
+                  "v": "3",
+                  "l": "Deuxième cycle de l’enseignement secondaire"
+                },
+                {
+                  "v": "4",
+                  "l": "Enseignement post-secondaire non-supérieur"
+                },
+                {
+                  "v": "5",
+                  "l": "Enseignement supérieur de cycle court"
+                },
+                {
+                  "v": "6",
+                  "l": "Baccalauréat universitaire ou équivalent"
+                },
+                {
+                  "v": "7",
+                  "l": "Maîtrise universitaire ou équivalent"
+                },
+                {
+                  "v": "8",
+                  "l": "Doctorat ou niveau équivalent"
+                }
+              ]
+          },
+
+          {
+            "type": "text",
+            "name": "Page wikipedia",
+            "tag": "wikipedia",
+            "optional": true
+          },
+          {
+            "type": "text",
+            "name": "Item wikidata",
+            "tag": "wikidata",
+            "optional": true
+          },
+          {
+            "type": "text",
+            "name": "Téléphone",
+            "tag": "contact:phone",
+            "optional": true,
+            "description": "Au format international : +33 X XX XX XX XX"
+          },
+          {
+            "type": "text",
+            "name": "Site web officiel",
+            "tag": "contact:website",
+            "optional": true
+          },
+          {
+            "type": "text",
+            "name": "e-mail officiel",
+            "tag": "contact:email",
+            "optional": true
+          },
+          {
+            "type": "select",
+            "name": "Accessibilité fauteuil roulant",
+            "tag": "wheelchair",
+            "optional": true,
+            "values": [
+              {
+                "v": "yes",
+                "l": "Complètement accessible"
+              },
+              {
+                "v": "limited",
+                "l": "Partiellement accessible"
+              },
+              {
+                "v": "no",
+                "l": "Pas accessible"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "name": "Niveau scolaire",
+            "tag": "school:FR",
+            "optional": true,
+            "values": [
+              {
+                "v": "maternelle",
+                "l": "Maternelle"
+              },
+              {
+                "v": "élémentaire",
+                "l": "Élémentaire"
+              },
+              {
+                "v": "primaire",
+                "l": "Primaire"
+              },
+              {
+                "v": "collège",
+                "l": "Collège"
+              },
+              {
+                "v": "lycée",
+                "l": "Lycée"
+              },
+              {
+                "v": "secondaire",
+                "l": "Secondaire (collège et lycée ensemble)"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "name": "Religion",
+            "tag": "religion",
+            "optional": true,
+            "values": [
+              {
+                "v": "no",
+                "l": "Aucune"
+              },
+              {
+                "v": "christian",
+                "l": "Chrétienne"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "name": "Pédagogie spécifique",
+            "tag": "pedagogy",
+            "optional": true,
+            "values": [
+              {
+                "v": "mainstream",
+                "l": "Éducation nationale"
+              },
+              {
+                "v": "freinet",
+                "l": "Freinet"
+              },
+              {
+                "v": "montessori",
+                "l": "Montessori"
+              },
+              {
+                "v": "waldorf",
+                "l": "Secte Waldof Steiner"
+              },
+              {
+                "v": "reggio_emilia",
+                "l": "Reggio Emillia"
+              },
+              {
+                "v": "sudbury",
+                "l": "Sudbury"
+              },
+              {
+                "v": "outdoor",
+                "l": "En extérieur"
+              },
+              {
+                "v": "hybride",
+                "l": "Hybride"
+              }
+            ]
+          },
+
+          {
+            "type": "textarea",
+            "name": "Autres informations",
+            "tag": "note",
+            "description": "Horaires, infos pratiques...",
+            "optional": true
+          }
+        ],
+        "title": {
+          "add": "Ajouter une école manquante",
+          "edit": "Compléter cette école"
+        }
+      },
+      "iD": {
+        "background": "fr.ign.bdortho"
+      }
+    }
+  }
